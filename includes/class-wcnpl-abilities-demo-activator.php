@@ -54,8 +54,10 @@ class WCNPL_Abilities_Demo_Activator {
 		dbDelta( $submissions_sql );
 
 		// Insert a sample form for demonstration.
-		$existing_form = $wpdb->get_var( "SELECT COUNT(*) FROM $forms_table_name" );
+		// phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching
+		$existing_form = $wpdb->get_var( "SELECT COUNT(*) FROM `$forms_table_name`" );
 		if ( 0 === (int) $existing_form ) {
+			// phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching
 			$wpdb->insert(
 				$forms_table_name,
 				array(

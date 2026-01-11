@@ -276,7 +276,8 @@ class WCNPL_Abilities_Demo_Abilities {
 
 		// Check if form exists.
 		$forms_table = $wpdb->prefix . 'wcnpl_forms';
-		$form_exists = $wpdb->get_var( $wpdb->prepare( "SELECT COUNT(*) FROM $forms_table WHERE id = %d", $form_id ) );
+		// phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching
+		$form_exists = $wpdb->get_var( $wpdb->prepare( "SELECT COUNT(*) FROM `$forms_table` WHERE id = %d", $form_id ) );
 
 		if ( ! $form_exists ) {
 			return array(
@@ -287,6 +288,7 @@ class WCNPL_Abilities_Demo_Abilities {
 
 		// Insert submission.
 		$submissions_table = $wpdb->prefix . 'wcnpl_form_submissions';
+		// phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching
 		$inserted          = $wpdb->insert(
 			$submissions_table,
 			array(
@@ -324,9 +326,10 @@ class WCNPL_Abilities_Demo_Abilities {
 		$submission_id     = isset( $input['submission_id'] ) ? intval( $input['submission_id'] ) : 0;
 		$submissions_table = $wpdb->prefix . 'wcnpl_form_submissions';
 
+		// phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching
 		$submission = $wpdb->get_row(
 			$wpdb->prepare(
-				"SELECT * FROM $submissions_table WHERE id = %d",
+				"SELECT * FROM `$submissions_table` WHERE id = %d",
 				$submission_id
 			),
 			ARRAY_A
@@ -363,7 +366,8 @@ class WCNPL_Abilities_Demo_Abilities {
 		global $wpdb;
 
 		$forms_table = $wpdb->prefix . 'wcnpl_forms';
-		$count       = $wpdb->get_var( "SELECT COUNT(*) FROM $forms_table" );
+		// phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching
+		$count       = $wpdb->get_var( "SELECT COUNT(*) FROM `$forms_table`" );
 
 		return array(
 			'count' => intval( $count ),
@@ -383,9 +387,10 @@ class WCNPL_Abilities_Demo_Abilities {
 		$submissions_table = $wpdb->prefix . 'wcnpl_form_submissions';
 
 		if ( $form_id > 0 ) {
+			// phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching
 			$count = $wpdb->get_var(
 				$wpdb->prepare(
-					"SELECT COUNT(*) FROM $submissions_table WHERE form_id = %d",
+					"SELECT COUNT(*) FROM `{$wpdb->prefix}wcnpl_form_submissions` WHERE form_id = %d",
 					$form_id
 				)
 			);
@@ -396,7 +401,8 @@ class WCNPL_Abilities_Demo_Abilities {
 			);
 		}
 
-		$count = $wpdb->get_var( "SELECT COUNT(*) FROM $submissions_table" );
+		// phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching
+		$count = $wpdb->get_var( "SELECT COUNT(*) FROM `$submissions_table`" );
 
 		return array(
 			'count' => intval( $count ),
