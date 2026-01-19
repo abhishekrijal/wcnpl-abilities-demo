@@ -1,0 +1,11 @@
+{
+  "name": "wcnpl-wp-abilities-mcp",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "MCP bridge server for the WCNPL Abilities Demo WordPress plugin (WP Abilities API).",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.0.0"
+  }
+}
+

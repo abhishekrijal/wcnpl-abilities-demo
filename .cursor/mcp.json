@@ -1,0 +1,16 @@
+{
+    "mcpServers": {
+      "wcnpl-wp-abilities": {
+        "command": "node",
+        "args": [
+          "/Users/abhishekrijal/sites/ai-experiments/wp-content/plugins/wcnpl-abilities-demo/mcp/server.js"
+        ],
+        "env": {
+          "WP_BASE_URL": "https://ai-experiments.test",
+          "WP_USERNAME": "ai",
+          "WP_APP_PASSWORD": "gPKY blJ2 t3bH ybBT hiWX CduL",
+          "NODE_TLS_REJECT_UNAUTHORIZED": "0"
+        }
+      }
+    }
+  }

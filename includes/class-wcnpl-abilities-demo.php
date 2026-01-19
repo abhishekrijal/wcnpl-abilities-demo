@@ -62,7 +62,10 @@ class WCNPL_Abilities_Demo {
 	private function define_hooks() {
 		$abilities = new WCNPL_Abilities_Demo_Abilities();
 
-		$this->loader->add_action( 'init', $abilities, 'register_abilities' );
+		$this->loader->add_action( 'wp_abilities_api_categories_init', $abilities, 'register_categories' );
+		$this->loader->add_action( 'wp_abilities_api_init', $abilities, 'register_abilities' );
+		// Fallback REST routes (works even without WP Abilities API).
+		$this->loader->add_action( 'rest_api_init', $abilities, 'register_rest_routes' );
 	}
 
 	/**

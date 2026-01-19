@@ -64,25 +64,29 @@ wcnpl-abilities-demo/
 
 ### Register Category
 ```php
-wp_register_ability_category([
-    'slug' => 'wcnpl-forms',
-    'label' => 'Forms',
-    'description' => 'Form abilities'
-]);
+wp_register_ability_category(
+    'wcnpl-forms',
+    [
+        'label' => 'Forms',
+        'description' => 'Form abilities',
+    ]
+);
 ```
 
 ### Register Ability
 ```php
-wp_register_ability([
-    'name' => 'plugin/ability-name',
-    'label' => 'Ability Label',
-    'description' => 'What it does',
-    'category' => 'category-slug',
-    'input_schema' => [...],
-    'output_schema' => [...],
-    'permission_callback' => function() { return true; },
-    'execute_callback' => [$this, 'method_name']
-]);
+wp_register_ability(
+    'plugin/ability-name',
+    [
+        'label' => 'Ability Label',
+        'description' => 'What it does',
+        'category' => 'category-slug',
+        'input_schema' => [...],
+        'output_schema' => [...],
+        'permission_callback' => function() { return true; },
+        'execute_callback' => [$this, 'method_name'],
+    ]
+);
 ```
 
 ## Documentation Files

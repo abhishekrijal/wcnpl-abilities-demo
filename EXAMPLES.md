@@ -14,8 +14,8 @@ private function register_list_forms_ability() {
     }
 
     wp_register_ability(
+        'wcnpl-abilities-demo/list-forms',
         array(
-            'name'                => 'wcnpl-abilities-demo/list-forms',
             'label'               => __( 'List Forms', 'wcnpl-abilities-demo' ),
             'description'         => __( 'Get a list of all available forms.', 'wcnpl-abilities-demo' ),
             'category'            => 'wcnpl-forms',
@@ -81,8 +81,8 @@ private function register_list_submissions_ability() {
     }
 
     wp_register_ability(
+        'wcnpl-abilities-demo/list-submissions',
         array(
-            'name'                => 'wcnpl-abilities-demo/list-submissions',
             'label'               => __( 'List Submissions', 'wcnpl-abilities-demo' ),
             'description'         => __( 'Get a paginated list of form submissions.', 'wcnpl-abilities-demo' ),
             'category'            => 'wcnpl-forms',
@@ -213,8 +213,8 @@ private function register_search_submissions_ability() {
     }
 
     wp_register_ability(
+        'wcnpl-abilities-demo/search-submissions',
         array(
-            'name'                => 'wcnpl-abilities-demo/search-submissions',
             'label'               => __( 'Search Submissions', 'wcnpl-abilities-demo' ),
             'description'         => __( 'Search form submissions by name, email, or message.', 'wcnpl-abilities-demo' ),
             'category'            => 'wcnpl-forms',
